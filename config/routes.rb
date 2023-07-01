@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :gyms, except: [:new, :edit]
+  resources :clients, except: [:new, :edit]
+
+  get '/memberships', to: 'memberships#create'
+  delete '/memberships/:id', to: 'memberships#destroy'
 end
